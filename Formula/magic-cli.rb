@@ -1,21 +1,21 @@
 class MagicCli < Formula
   desc "Command line utility to make you a magician in the terminal"
   homepage "https://github.com/guywaldman/magic-cli"
-  version "0.0.1"
+  version "0.0.2"
   if OS.mac?
     if Hardware::CPU.arm?
-      url "https://github.com/guywaldman/magic-cli/releases/download/0.0.1/magic-cli-aarch64-apple-darwin.tar.xz"
-      sha256 "357a1325a4d8ac35cbf2eea75e2cf6c782c37d83ce63d258855d97ae8cd7f704"
+      url "https://github.com/guywaldman/magic-cli/releases/download/0.0.2/magic-cli-aarch64-apple-darwin.tar.xz"
+      sha256 "f4d264325cf3b6b2f791529c4056cc1e800b26cc2a4a55ed266e91d4d16cf67d"
     end
     if Hardware::CPU.intel?
-      url "https://github.com/guywaldman/magic-cli/releases/download/0.0.1/magic-cli-x86_64-apple-darwin.tar.xz"
-      sha256 "135b45d84ecac84354606ee8de2eedbd062498bc490144989346174f495772e6"
+      url "https://github.com/guywaldman/magic-cli/releases/download/0.0.2/magic-cli-x86_64-apple-darwin.tar.xz"
+      sha256 "fe5970ebb9804dec9bd6a0947824eb15f18b2ff3b8ce06745f3fd9e30cafc6ca"
     end
   end
   if OS.linux?
     if Hardware::CPU.intel?
-      url "https://github.com/guywaldman/magic-cli/releases/download/0.0.1/magic-cli-x86_64-unknown-linux-gnu.tar.xz"
-      sha256 "cfbdb74c71ee0dbdf3e9a2ff4b456d06e729155ed459a8440e3b0fe6c9b1fe31"
+      url "https://github.com/guywaldman/magic-cli/releases/download/0.0.2/magic-cli-x86_64-unknown-linux-gnu.tar.xz"
+      sha256 "43407a71eced0ce6b602f753814acc3425187a7e3a14210516de3740ea1f22d0"
     end
   end
 
