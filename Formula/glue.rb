@@ -1,27 +1,27 @@
 class Glue < Formula
   desc "CLI for Glue (IDL and toolchain for modeling data and interfaces)"
   homepage "https://github.com/guywaldman/glue"
-  version "1.3.0"
+  version "1.4.0"
 
   on_macos do
     if Hardware::CPU.arm?
-      url "https://github.com/guywaldman/glue/releases/download/v1.3.0/glue_darwin_arm64.tar.gz"
-      sha256 "42acfd40573b14fe90da7ec348523d58e2c5dc4ef6b03da8a1b95dddc984b507"
+      url "https://github.com/guywaldman/glue/releases/download/v1.4.0/glue_darwin_arm64.tar.gz"
+      sha256 "4cba97642c1ae73eaed502d3291d5983d38abd76e3948bddd8c02993ca11a1b4"
     end
     if Hardware::CPU.intel?
-      url "https://github.com/guywaldman/glue/releases/download/v1.3.0/glue_darwin_amd64.tar.gz"
-      sha256 "f94dd8c3f0fbb04ebfeee71741f48bfb6b46a0749bc95876fcf5a408be164047"
+      url "https://github.com/guywaldman/glue/releases/download/v1.4.0/glue_darwin_amd64.tar.gz"
+      sha256 "0adc0a85dc81e3fb141b6e4eae1c18ff1573ffedaece2eb46e1bc3bb6a7e35fd"
     end
   end
 
   on_linux do
     if Hardware::CPU.arm?
-      url "https://github.com/guywaldman/glue/releases/download/v1.3.0/glue_linux_arm64.tar.gz"
-      sha256 "e004ec0509bcaa373625a9bc524f8422a8ad5e1364e611fbc58ece6a7210966d"
+      url "https://github.com/guywaldman/glue/releases/download/v1.4.0/glue_linux_arm64.tar.gz"
+      sha256 "460b0ce53e2aa30b17d63f809c8897033119d60aeb79f3fd8a482a324a238395"
     end
     if Hardware::CPU.intel?
-      url "https://github.com/guywaldman/glue/releases/download/v1.3.0/glue_linux_amd64.tar.gz"
-      sha256 "abc64d5765d056d8c85ebf4dcdca4e8ab890bc975a8f92527362bd3ebed1e5b9"
+      url "https://github.com/guywaldman/glue/releases/download/v1.4.0/glue_linux_amd64.tar.gz"
+      sha256 "32fc41f19f6170119fb483348ef34f6f57e879b4b31f007ed86987cb6d26cfd4"
     end
   end
 
