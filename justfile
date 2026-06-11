@@ -1,6 +1,12 @@
-update-glue tag="":
+update formula tag="":
 	@if [ -n "{{tag}}" ]; then \
-		uv run scripts/update_glue.py --tag "{{tag}}"; \
+		uv run scripts/update_formula.py "{{formula}}" --tag "{{tag}}"; \
 	else \
-		uv run scripts/update_glue.py; \
+		uv run scripts/update_formula.py "{{formula}}"; \
 	fi
+
+update-glue tag="":
+	just update glue "{{tag}}"
+
+update-wt tag="":
+	just update wt "{{tag}}"
