@@ -8,12 +8,14 @@ from __future__ import annotations
 import argparse
 import hashlib
 import json
+import os
 import re
 import shutil
 import tempfile
 import urllib.request
 from dataclasses import dataclass
 from pathlib import Path
+from urllib.parse import urlparse
 
 
 @dataclass(frozen=True)
@@ -50,19 +52,35 @@ FORMULAE = {
 }
 
 
+def github_token() -> str | None:
+    return os.environ.get("GITHUB_TOKEN") or os.environ.get("GH_TOKEN") or os.environ.get("HOMEBREW_TAP_TOKEN")
+
+
+def github_request(url: str, *, accept: str) -> urllib.request.Request:
+    headers = {
+        "Accept": accept,
+        "User-Agent": "homebrew-tap-update-formula",
+    }
+    host = urlparse(url).hostname
+    token = github_token()
+    if token and host in {"api.github.com", "github.com"}:
+        headers["Authorization"] = f"Bearer {token}"
+    return urllib.request.Request(url, headers=headers)
+
+
 def fetch_release(repo: str, tag: str | None) -> dict:
     if tag:
         url = f"https://api.github.com/repos/{repo}/releases/tags/{tag}"
     else:
         url = f"https://api.github.com/repos/{repo}/releases/latest"
 
-    req = urllib.request.Request(url, headers={"Accept": "application/vnd.github+json"})
+    req = github_request(url, accept="application/vnd.github+json")
     with urllib.request.urlopen(req) as response:
         return json.loads(response.read().decode("utf-8"))
 
 
 def download_file(url: str, destination: Path) -> None:
-    req = urllib.request.Request(url)
+    req = github_request(url, accept="application/octet-stream")
     with urllib.request.urlopen(req) as response, destination.open("wb") as out:
         shutil.copyfileobj(response, out)
 
@@ -108,7 +126,7 @@ def main() -> None:
     release = fetch_release(config.repo, args.tag)
     tag = release["tag_name"]
     version = tag[1:] if tag.startswith("v") else tag
-    assets = {asset["name"]: asset["browser_download_url"] for asset in release.get("assets", [])}
+    assets = {asset["name"]: asset["url"] for asset in release.get("assets", [])}
 
     temp_dir = Path(tempfile.mkdtemp(prefix=f"{args.formula}-assets-"))
     shas: dict[str, str] = {}
