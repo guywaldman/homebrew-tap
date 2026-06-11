@@ -1,27 +1,27 @@
 class Wt < Formula
   desc "Ergonomic git worktree helper CLI"
   homepage "https://github.com/guywaldman/wt"
-  version "0.1.3"
+  version "0.1.4"
 
   on_macos do
     if Hardware::CPU.arm?
-      url "https://github.com/guywaldman/wt/releases/download/v0.1.3/wt_darwin_arm64.tar.gz"
-      sha256 "500628b24645691ed5e90fc87d5f7bf843198311c65eae9adfb551eff00849b1"
+      url "https://github.com/guywaldman/wt/releases/download/v0.1.4/wt_darwin_arm64.tar.gz"
+      sha256 "2c50c0f5958bbb7f4656c9b6f239c74cd6d7759aa56c16cb12498155cc48aaaa"
     end
     if Hardware::CPU.intel?
-      url "https://github.com/guywaldman/wt/releases/download/v0.1.3/wt_darwin_amd64.tar.gz"
-      sha256 "fe655716039b3597200941f1fd7d4703336fcff189ff014f555a975e8b9ef15b"
+      url "https://github.com/guywaldman/wt/releases/download/v0.1.4/wt_darwin_amd64.tar.gz"
+      sha256 "75e4ca21028a5277b885cdab8ad263b60a7ce26ecb72a1c18e53f8badffd1562"
     end
   end
 
   on_linux do
     if Hardware::CPU.arm?
-      url "https://github.com/guywaldman/wt/releases/download/v0.1.3/wt_linux_arm64.tar.gz"
-      sha256 "e9f3acccb52916a30215f82aba9e09d3015e0214ec8ebc6cb85491a1d6be78ed"
+      url "https://github.com/guywaldman/wt/releases/download/v0.1.4/wt_linux_arm64.tar.gz"
+      sha256 "2b58100b2b90c26f745f4e49f6e4d9e7cc0f46d5f5ee0110edb0b6f20695ff82"
     end
     if Hardware::CPU.intel?
-      url "https://github.com/guywaldman/wt/releases/download/v0.1.3/wt_linux_amd64.tar.gz"
-      sha256 "ae802684935bc4d1cc95ae47f86084a54f197f9d89e7b005c1b19f5e5f141668"
+      url "https://github.com/guywaldman/wt/releases/download/v0.1.4/wt_linux_amd64.tar.gz"
+      sha256 "0a5df1dafe72bc9c86d9234f53ec42229a0593589c25794a7829af408ff50db8"
     end
   end
 
